@@ -5,7 +5,7 @@ const buyTicketButton = document.getElementById('buy-ticket');
 const deleteButton = document.getElementById('delete-movie'); // Added a delete button
 
 // Fetch the list of movies from the server
-fetch(' http://localhost:3000/films')
+fetch(' https://json-deploy-6dmu.onrender.com/films')
   .then((response) => response.json())
   .then((data) => {
     // Populate the movie list and mark movies as sold out if necessary
@@ -78,7 +78,7 @@ buyTicketButton.addEventListener('click', (event) => {
     }
 
     // Update the number of tickets_sold on the server
-    fetch(` http://localhost:3000/films/${selectedFilm.id}`, {
+    fetch(` https://json-deploy-6dmu.onrender.com/films${selectedFilm.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ deleteButton.addEventListener('click', () => {
 
 // Function to remove a film from the server
 function deleteFilm(id) {
-  fetch(` http://localhost:3000/films/${id}`, {
+  fetch(` https://json-deploy-6dmu.onrender.com/films${id}`, {
     method: 'DELETE',
   })
     .then(() => {
